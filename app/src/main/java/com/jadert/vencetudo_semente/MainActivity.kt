@@ -138,11 +138,11 @@ class MainActivity : ComponentActivity() {
                                 } else {
                                     if (!ehInteiro(sementesMetro)){
                                         scope.launch {
-                                            snackbarHostState.showSnackbar("O valor de sementes deve ser um número")
+                                            snackbarHostState.showSnackbar("O valor de sementes deve ser um número inteiro")
                                         }
                                     } else if (!ehInteiro(furosDisco)){
                                         scope.launch {
-                                            snackbarHostState.showSnackbar("O valor de furos deve ser um número")
+                                            snackbarHostState.showSnackbar("O valor de furos deve ser um número inteiro")
                                         }
                                     } else {
                                         if ((sementesMetro.toInt() <= 0) or (sementesMetro.toInt() > 100)) {
