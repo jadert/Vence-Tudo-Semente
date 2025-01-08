@@ -1,6 +1,7 @@
 package com.jadert.vencetudo_semente
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -101,9 +102,13 @@ class MainActivity : ComponentActivity() {
                             horizontalArrangement = Arrangement.End,
                         ) {
                             SnackbarHost(hostState = snackbarHostState)
-                            FloatingActionButton(onClick = {
+                            FloatingActionButton(
+                                onClick = {
                                 navController.navigate(TelaSobre)
-                            }) {
+                            },
+                                containerColor = MaterialTheme.colorScheme.tertiary,
+                                contentColor = MaterialTheme.colorScheme.onSecondaryContainer
+                            ) {
                                 Icon(Icons.Filled.Info, "Informações.")
                             }
                         }
@@ -237,9 +242,12 @@ class MainActivity : ComponentActivity() {
                                 .fillMaxSize(),
                             horizontalArrangement = Arrangement.End,
                         ) {
-                            FloatingActionButton(onClick = {
+                            FloatingActionButton(
+                                onClick = {
                                 navController.navigate(TelaInicial)
-                            }) {
+                            },
+                                containerColor = MaterialTheme.colorScheme.tertiary,
+                                contentColor = MaterialTheme.colorScheme.onSecondaryContainer) {
                                 Icon(Icons.AutoMirrored.Filled.ArrowBack, "Voltar.")
                             }
                         }
@@ -300,7 +308,7 @@ class MainActivity : ComponentActivity() {
                             Text(text = "Eixo C: "+eixoC[opcaoSemente], fontSize = 40.sp)
                             Text(text = "Eixo D: "+eixoD[opcaoSemente], fontSize = 40.sp)
                             HorizontalDivider(thickness = 2.dp)
-                            Text(text = "Sementes: "+df.format(sementeReal[opcaoSemente]).toDouble(),
+                            Text(text = "Sementes: "+df.format(sementeReal[opcaoSemente]).toString(),
                                 fontSize = 40.sp, fontWeight = FontWeight.Medium)
                         }
                     }
@@ -382,7 +390,9 @@ class MainActivity : ComponentActivity() {
                         ) {
                             FloatingActionButton(onClick = {
                                 navController.navigate(TelaInicial)
-                            }) {
+                            },
+                                containerColor = MaterialTheme.colorScheme.tertiary,
+                                contentColor = MaterialTheme.colorScheme.onSecondaryContainer) {
                                 Icon(Icons.AutoMirrored.Filled.ArrowBack, "Voltar.")
                             }
                         }
