@@ -1,6 +1,6 @@
 
 ![Logo](https://i.ibb.co/NZPkRT0/logo.png)
-# Vence Tudo: Sementes
+# Vence Tudo: Semente
 
 Este aplicativo Android, desenvolvido em Kotlin com Jetpack Compose, auxilia na configuração de plantadeiras Vence Tudo, calculando as configuração ideal de engrenagens para a distribuição de sementes solicitada pelo usuário.
 
