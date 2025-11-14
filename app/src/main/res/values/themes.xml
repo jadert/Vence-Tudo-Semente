@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Theme.VenceTudoSemente" parent="android:Theme.Material.Light.NoActionBar" />
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Plantadeira" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Suas cores originais -->
+        <item name="colorPrimary">@color/light_primary</item>
+        <item name="colorTertiary">@color/light_primary</item>
+        <!-- 1. Torna as barras de status e navegação transparentes -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+
+        <!-- 2. Garante que os ícones da barra de status sejam escuros (para fundos claros) -->
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- 3. Garante que os ícones da barra de navegação sejam escuros (para fundos claros) -->
+        <!-- tools:targetApi="o" (API 27) é para compatibilidade com versões mais antigas do Android -->
+        <item name="android:windowLightNavigationBar" tools:targetApi="o">true</item>
+    </style>
+    <style name="Theme.Plantadeira" parent="Base.Theme.Plantadeira" />
 </resources>

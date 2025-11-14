@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".Retorno">
+
+    <!-- Floating Action Button para Voltar -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/voltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:contentDescription="@string/back_button_description"
+        android:focusable="true"
+        app:backgroundTint="#646464"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        app:tint="#FFFFFF"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@+id/voltar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- CardView para agrupar e contextualizar os Switches -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSwitches"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="@string/opcoes_visualizacao"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!-- MODIFICAÇÃO AQUI: Layout dos Switches agora vertical -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"> <!-- Alterado para vertical -->
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/switchAcimaAbaixo"
+                            android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/switch_abaixo_acima"
+                        android:textSize="16sp"
+                        tools:ignore="UseSwitchCompatForToggleGroup,VisualLintButtonSize" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/switchFacilProximo"
+                            android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/switch_facil_proximo"
+                        android:textSize="16sp"
+                        tools:ignore="UseSwitchCompatForToggleGroup" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CardView para o Resultado Principal de Sementes (destaque) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardResultadoSementes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/resultadoSementes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dark_primary"
+                        android:textSize="60sp"
+                        android:textStyle="bold"
+                        tools:text="11.85" />
+
+                    <TextView
+                        android:id="@+id/textViewSementesLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:alpha="0.7"
+                        android:text="@string/sementes_por_metro"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- LinearLayout para a Distribuição por Eixos -->
+            <LinearLayout
+                android:id="@+id/layoutEixos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_background"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/distribuicao_por_eixos"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Eixo A -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A:"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginEnd="8dp"
+                        android:textColor="?attr/colorOnSurface"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:id="@+id/resultadoEixoA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="?attr/colorOnSurface"
+                        tools:text="24"/>
+                </LinearLayout>
+
+                <!-- Eixo B -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="B:"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginEnd="8dp"
+                        android:textColor="?attr/colorOnSurface"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:id="@+id/resultadoEixoB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="?attr/colorOnSurface"
+                        tools:text="15"/>
+                </LinearLayout>
+
+                <!-- Eixo C -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="C:"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginEnd="8dp"
+                        android:textColor="?attr/colorOnSurface"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:id="@+id/resultadoEixoC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="?attr/colorOnSurface"
+                        tools:text="14"/>
+                </LinearLayout>
+
+                <!-- Eixo D -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="D:"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginEnd="8dp"
+                        android:textColor="?attr/colorOnSurface"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:id="@+id/resultadoEixoD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="?attr/colorOnSurface"
+                        tools:text="14"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

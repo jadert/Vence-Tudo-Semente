@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">Vence Tudo: Semente</string>
+    <string name="app_name">Panther</string>
+    <string name="calcular">Calcular</string>
+    <string name="furos_do_disco">Furos do Disco</string>
+    <string name="sementes_por_metro">Sementes por metro</string>
+    <string name="switch_abaixo_acima">Abaixo / Acima</string>
+    <string name="switch_facil_proximo">+Fácil / +Próximo</string>
+    <string name="resultado_final_sementes">%1$.2f</string>
+    <string name="informa_es">Informações</string>
+    <string name="title_activity_retorno">Retornar</string>
+    <string name="erro_campo_obrigatorio">Campo obrigatório</string>
+    <string name="erro_numero_invalido">Digite um número válido</string>
+    <string name="back_button_description">Voltar à tela anterior</string>
+    <string name="opcoes_visualizacao">Opções de Visualização</string>
+    <string name="distribuicao_por_eixos">Configuração por Eixo</string>
+    <string name="imagem_do_tutorial">Imagem do Tutorial</string>
+    <string name="desenvolvido">Desenvolvido por Jader Teixeira</string>
+    <string name="aviso_legal">Todas as marcas pertencem a Vence Tudo - Ind. de Máquinas e Implementos Agrícolas</string>
+    <string name="proximo">Próximo</string>
+    <string name="anterior">Anterior</string>
 </resources>
