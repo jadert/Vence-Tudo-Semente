@@ -65,7 +65,7 @@
             android:inputType="number"
             android:singleLine="true"
             android:textColor="?attr/colorOnSurface"
-            android:textColorHint="#546E7A" />
+        />
 
     </com.google.android.material.textfield.TextInputLayout>
 

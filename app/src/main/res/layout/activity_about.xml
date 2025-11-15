@@ -7,7 +7,6 @@
     android:fitsSystemWindows="true"
     tools:context=".About">
 
-    <!-- FloatingActionButton para voltar -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/voltar"
         android:layout_width="wrap_content"
@@ -16,14 +15,13 @@
         android:layout_marginEnd="16dp"
         android:clickable="true"
         android:contentDescription="@string/title_activity_retorno"
-        app:backgroundTint="#646464"
+        app:backgroundTint="?attr/fabBackgroundColor"
+        app:tint="?attr/fabIconColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert"
-        app:tint="#FFFFFF"
         android:focusable="true" />
 
-    <!-- Container para textos de copyright -->
     <LinearLayout
         android:id="@+id/copyrightContainer"
         android:layout_width="0dp"
@@ -54,10 +52,8 @@
             android:fontFamily="sans-serif-light"
             android:text="@string/desenvolvido"
             android:textSize="14sp" />
-
     </LinearLayout>
 
-    <!-- Container para botões de navegação -->
     <LinearLayout
         android:id="@+id/navigationContainer"
         android:layout_width="wrap_content"
@@ -79,7 +75,7 @@
             android:contentDescription="@string/anterior"
             android:minWidth="48dp"
             android:text="◀"
-            android:textColor="#D81B60"
+            android:textColor="?attr/colorPrimary"
             tools:ignore="HardcodedText" />
 
         <com.google.android.material.button.MaterialButton
@@ -90,12 +86,10 @@
             android:contentDescription="@string/proximo"
             android:minWidth="48dp"
             android:text="▶"
-            android:textColor="#D81B60"
+            android:textColor="?attr/colorPrimary"
             tools:ignore="HardcodedText" />
-
     </LinearLayout>
 
-    <!-- Área principal do tutorial -->
     <LinearLayout
         android:id="@+id/tutorialContainer"
         android:layout_width="0dp"
@@ -135,7 +129,5 @@
             android:scaleType="fitCenter"
             android:src="@drawable/tutorial_1"
             tools:ignore="ImageContrastCheck" />
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

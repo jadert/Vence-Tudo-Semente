@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cores Semânticas (Tema Escuro) -->
+    <color name="colorPrimary">#E57373</color>
+    <color name="colorOnPrimary">#490008</color>
+    <color name="colorSurface">#1C1B1F</color>
+    <color name="colorOnSurface">#E6E1E5</color>
+    <color name="colorSurfaceVariant">#49454F</color>
+    <color name="colorOnSurfaceVariant">#CAC4D0</color>
+
+    <!-- Cores Customizadas (Tema Escuro) -->
+    <color name="custom_fab_background_color">#4F4F4F</color>
+    <color name="custom_fab_icon_color">#E0E0E0</color>
+    <color name="custom_rounded_background">#2C2C2E</color> <!-- Fundo escuro para o container -->
+    <color name="custom_rounded_stroke">#48484A</color> <!-- Borda sutil para o modo escuro -->
+</resources>

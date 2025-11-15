@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Atributos para cores customizadas de componentes -->
+    <attr name="fabBackgroundColor" format="color" />
+    <attr name="fabIconColor" format="color" />
+
+    <!-- Atributos para o fundo arredondado -->
+    <attr name="roundedBackgroundColor" format="color" />
+    <attr name="roundedBackgroundStrokeColor" format="color" />
+</resources>

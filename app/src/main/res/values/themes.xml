@@ -1,19 +1,25 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+<!-- res/values/themes.xml -->
+<resources>
     <style name="Base.Theme.Plantadeira" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Suas cores originais -->
-        <item name="colorPrimary">@color/light_primary</item>
-        <item name="colorTertiary">@color/light_primary</item>
-        <!-- 1. Torna as barras de status e navegação transparentes -->
+        <!-- Cores Padrão M3 -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="colorSurfaceVariant">@color/colorSurfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/colorOnSurfaceVariant</item>
+
+        <!-- Cores Customizadas -->
+        <item name="fabBackgroundColor">@color/custom_fab_background_color</item>
+        <item name="fabIconColor">@color/custom_fab_icon_color</item>
+        <item name="roundedBackgroundColor">@color/custom_rounded_background</item>
+        <item name="roundedBackgroundStrokeColor">@color/custom_rounded_stroke</item>
+
+        <!-- Edge-to-edge -->
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
-
-        <!-- 2. Garante que os ícones da barra de status sejam escuros (para fundos claros) -->
         <item name="android:windowLightStatusBar">true</item>
-
-        <!-- 3. Garante que os ícones da barra de navegação sejam escuros (para fundos claros) -->
-        <!-- tools:targetApi="o" (API 27) é para compatibilidade com versões mais antigas do Android -->
-        <item name="android:windowLightNavigationBar" tools:targetApi="o">true</item>
     </style>
+
     <style name="Theme.Plantadeira" parent="Base.Theme.Plantadeira" />
 </resources>

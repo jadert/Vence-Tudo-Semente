@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <!-- Cores Base -->
+    <color name="red_brand">#D43034</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="dark_primary">#D43034</color>
-    <color name="light_primary">#D43034</color>
+    <color name="black">#FF000000</color>
+    <color name="grey_light">#F5F5F5</color>
+    <color name="grey_stroke">#E0E0E0</color>
+    <color name="grey_fab">#646464</color>
+
+    <!-- Cores Semânticas (Tema Claro) -->
+    <color name="colorPrimary">@color/red_brand</color>
+    <color name="colorOnPrimary">@color/white</color>
+    <color name="colorSurface">#FFFBFE</color>
+    <color name="colorOnSurface">#1C1B1F</color>
+    <color name="colorSurfaceVariant">#E7E0EC</color>
+    <color name="colorOnSurfaceVariant">#49454F</color>
+
+    <!-- Cores Customizadas (Tema Claro) -->
+    <color name="custom_fab_background_color">@color/grey_fab</color>
+    <color name="custom_fab_icon_color">@color/white</color>
+    <color name="custom_rounded_background">@color/grey_light</color>
+    <color name="custom_rounded_stroke">@color/grey_stroke</color>
 </resources>

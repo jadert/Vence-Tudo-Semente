@@ -7,7 +7,6 @@
     android:fitsSystemWindows="true"
     tools:context=".Retorno">
 
-    <!-- Floating Action Button para Voltar -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/voltar"
         android:layout_width="wrap_content"
@@ -17,11 +16,11 @@
         android:clickable="true"
         android:contentDescription="@string/back_button_description"
         android:focusable="true"
-        app:backgroundTint="#646464"
+        app:backgroundTint="?attr/fabBackgroundColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert"
-        app:tint="#FFFFFF"
+        app:tint="?attr/fabIconColor"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ScrollView
@@ -71,20 +70,20 @@
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchAcimaAbaixo"
                             android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/switch_abaixo_acima"
-                        android:textSize="16sp"
-                        tools:ignore="UseSwitchCompatForToggleGroup,VisualLintButtonSize" />
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="@string/switch_abaixo_acima"
+                            android:textSize="16sp"
+                            tools:ignore="UseSwitchCompatForToggleGroup,VisualLintButtonSize" />
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchFacilProximo"
                             android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/switch_facil_proximo"
-                        android:textSize="16sp"
-                        tools:ignore="UseSwitchCompatForToggleGroup" />
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/switch_facil_proximo"
+                            android:textSize="16sp"
+                            tools:ignore="UseSwitchCompatForToggleGroup" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -109,7 +108,7 @@
                         android:id="@+id/resultadoSementes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/dark_primary"
+                        android:textColor="?attr/colorPrimary"
                         android:textSize="60sp"
                         android:textStyle="bold"
                         tools:text="11.85" />
