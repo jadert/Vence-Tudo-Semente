@@ -1,8 +1,7 @@
-
 ![Logo](https://i.ibb.co/NZPkRT0/logo.png)
 # Vence Tudo: Semente
 
-Este aplicativo Android, desenvolvido em Kotlin com Jetpack Compose, auxilia na configuração de plantadeiras Vence Tudo, calculando as configuração ideal de engrenagens para a distribuição de sementes solicitada pelo usuário.
+Este aplicativo Android, desenvolvido no Android Studio, auxilia na configuração de plantadeiras Vence Tudo, calculando as configuração ideal de engrenagens para a distribuição de sementes solicitada pelo usuário.
 
 A verfificação na tabela da plantadeira é demorada e limitada a alguns discos especificos. Essa ferramenta se adapta a todos os discos.
 ## Funcionalidades
@@ -17,16 +16,16 @@ Esse aplicativo recebe o valor de sementes na qual se deseja distribuir por metr
 
 Primeiro informe o número de sementes por metro linear que você deseja distribuir. Depois o número de furos no disco que esta sendo utilizado. Após isso é só apartar em "Calcular"
 
-![Tela Inical](https://i.ibb.co/ThSRrDF/inicial.png)
+![Tela Inical](https://i.ibb.co/chhv341m/tutorial-1.png" alt="tutorial-1)
 
 Como nem sempre o valor exato pode ser obtido alguns parâmetros de ajustes podem ser usados.
 Pode ser buscado o valor mais próximo a cima ou mais próximo abaixo do valor inserido.
 
-![Acima Abaixo](https://i.ibb.co/Nx5sYTD/arredonda.png)
+![Acima Abaixo](https://i.ibb.co/20gr7CMV/tutorial-2.png)
 
 Também existe a possibilidade de ajuste mudando apenas 2 dos 4 eixos na plantadeira, sendo assim uma regulagem mais fácil, no entanto possivelmente menos precisa.
 
-![Precisao](https://i.ibb.co/ykxcFKT/tipo.png)
+![Precisao](https://i.ibb.co/KxVMVMGr/tutorial-3.png)
 
 Esses parâmetros podem ser ajustadas rapidamente e assim o operador decide qual se aqueda melhor ao seu trabalho.
 
@@ -36,7 +35,7 @@ Ele foi desenvolvido com base na plantadeira Vence Tudo Panther ano 2016, mas cr
 
 O aplicativo vai mostrar qual engrenagem deve estar em cada eixo para se obter o resultado solicitado, bem como qual será o valor real de sementes que serão distribuidas por metro linear.
 
-![Resultado](https://i.ibb.co/fVJcbMV/resultado.png)
+![Resultado](https://i.ibb.co/nN3XDnM8/tutorial-5.png)
 ## Licença
 
 [Mozilla Public License 2.0](https://choosealicense.com/licenses/mpl-2.0/)
