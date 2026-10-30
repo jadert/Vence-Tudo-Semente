@@ -3,10 +3,14 @@ package com.jadert.panther;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.activity.EdgeToEdge;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +59,25 @@ public class About extends AppCompatActivity {
         setupNavigationToolbar();
         setupViewPager();
         setupNavigationButtons();
+        setupWindowInsets();
+    }
+
+    private void setupWindowInsets() {
+        View copyrightContainer = findViewById(R.id.copyrightContainer);
+        if (copyrightContainer != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(copyrightContainer, (v, windowInsets) -> {
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                int baseBottom = (int) TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics());
+                v.setPadding(
+                        v.getPaddingLeft(),
+                        v.getPaddingTop(),
+                        v.getPaddingRight(),
+                        insets.bottom + baseBottom
+                );
+                return windowInsets;
+            });
+        }
     }
 
     private void initViews() {

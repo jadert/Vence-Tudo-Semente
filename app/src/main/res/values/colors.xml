@@ -1,31 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Cores Institucionais e Técnicas (Pantone Maquinário Agrícola) -->
+    <!-- Primárias de Ação e Destaque -->
     <color name="brand_primary">#CE0B10</color>           <!-- Vermelho Institucional - Pantone 186C -->
-    <color name="brand_primary_dark">#8D1913</color>      <!-- Hover / Dark Accent -->
+    <color name="brand_primary_dark">#8D1913</color>      <!-- Hover / Active / Dark Accent -->
     <color name="brand_primary_deep">#460E0F</color>      <!-- Dark Border / Max Contrast -->
-    <color name="brand_secondary">#ECCA00</color>         <!-- Amarelo Principal - Pantone 7405C -->
-    <color name="brand_secondary_warm">#E7B104</color>    <!-- Amarelo Ouro / Trigo - Pantone 124C -->
 
-    <!-- Neutros e Superfícies Industriais -->
+    <!-- Secundárias & Acentos Agrícolas -->
+    <color name="brand_secondary">#ECCA00</color>         <!-- Amarelo Principal - Pantone 7405C (Alertas / Badges) -->
+    <color name="brand_secondary_warm">#E7B104</color>    <!-- Amarelo Ouro / Trigo - Pantone 124C (Toggles / Medições) -->
+    <color name="brand_on_secondary">#373636</color>      <!-- Texto sobre Amarelo (Contraste 7.2:1) -->
+
+    <!-- Neutros & Superfícies -->
     <color name="dark_surface">#373636</color>           <!-- Cinza Escuro Institucional - K 92% -->
     <color name="neutral_dark">#575756</color>           <!-- Cinza K 80% (Texto secundário) -->
     <color name="neutral_border">#C6C6C6</color>         <!-- Cinza K 30% (Divisores e bordas) -->
-    <color name="background_light">#F8F9FA</color>       <!-- Fundo da tela em alta luminosidade -->
+    <color name="background_light">#F8F9FA</color>       <!-- Fundo da tela sob alta luminosidade -->
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
 
     <!-- Mapeamento Semântico Material 3 (Tema Claro) -->
     <color name="colorPrimary">@color/brand_primary</color>
     <color name="colorOnPrimary">@color/white</color>
+    <color name="colorPrimaryContainer">@color/brand_primary_deep</color>
+    <color name="colorOnPrimaryContainer">@color/white</color>
     <color name="colorSecondary">@color/brand_secondary</color>
-    <color name="colorOnSecondary">@color/dark_surface</color>
+    <color name="colorOnSecondary">@color/brand_on_secondary</color>
+    <color name="colorSecondaryContainer">@color/brand_secondary_warm</color>
+    <color name="colorOnSecondaryContainer">@color/brand_on_secondary</color>
+    <color name="colorTertiary">@color/brand_secondary_warm</color>
+    <color name="colorOnTertiary">@color/brand_on_secondary</color>
     <color name="colorSurface">@color/white</color>
     <color name="colorOnSurface">@color/dark_surface</color>
     <color name="colorSurfaceVariant">@color/background_light</color>
     <color name="colorOnSurfaceVariant">@color/neutral_dark</color>
     <color name="colorOutline">@color/neutral_border</color>
-    <color name="colorOutlineVariant">#E0E0E0</color>
+    <color name="colorOutlineVariant">@color/neutral_border</color>
 
     <!-- Legado / Custom -->
     <color name="custom_fab_background_color">@color/dark_surface</color>

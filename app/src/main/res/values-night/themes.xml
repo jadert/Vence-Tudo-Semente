@@ -4,8 +4,15 @@
         <!-- Cores Padrão M3 -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorPrimaryContainer">@color/colorPrimaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/colorOnPrimaryContainer</item>
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorSecondaryContainer">@color/colorSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/colorOnSecondaryContainer</item>
+        <item name="colorTertiary">@color/colorTertiary</item>
+        <item name="colorOnTertiary">@color/colorOnTertiary</item>
+        <item name="android:colorBackground">#181818</item>
         <item name="colorSurface">@color/colorSurface</item>
         <item name="colorOnSurface">@color/colorOnSurface</item>
         <item name="colorSurfaceVariant">@color/colorSurfaceVariant</item>
@@ -13,11 +20,37 @@
         <item name="colorOutline">@color/colorOutline</item>
         <item name="colorOutlineVariant">@color/colorOutlineVariant</item>
 
+        <!-- Superfícies Noturnas Limpas sem Overlay Tint -->
+        <item name="elevationOverlayEnabled">false</item>
+        <item name="elevationOverlayColor">@android:color/transparent</item>
+        <item name="colorSurfaceContainerLow">@color/dark_surface</item>
+        <item name="colorSurfaceContainer">@color/dark_surface</item>
+        <item name="colorSurfaceContainerHigh">@color/dark_surface</item>
+        <item name="colorSurfaceContainerHighest">@color/dark_surface</item>
+
         <!-- Cores Customizadas -->
         <item name="fabBackgroundColor">@color/custom_fab_background_color</item>
         <item name="fabIconColor">@color/custom_fab_icon_color</item>
         <item name="roundedBackgroundColor">@color/custom_rounded_background</item>
         <item name="roundedBackgroundStrokeColor">@color/custom_rounded_stroke</item>
+
+        <!-- Tipografia Institucional (Montserrat) -->
+        <item name="fontFamily">@font/montserrat</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+
+        <!-- Mapeamento Tipográfico M3 -->
+        <item name="textAppearanceDisplayLarge">@style/TextAppearance.Plantadeira.DisplayLarge</item>
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.Plantadeira.DisplayMedium</item>
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.Plantadeira.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.Plantadeira.HeadlineMedium</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.Plantadeira.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.Plantadeira.TitleMedium</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.Plantadeira.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.Plantadeira.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.Plantadeira.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.Plantadeira.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.Plantadeira.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.Plantadeira.LabelSmall</item>
 
         <!-- Edge-to-edge -->
         <item name="android:statusBarColor">@android:color/transparent</item>

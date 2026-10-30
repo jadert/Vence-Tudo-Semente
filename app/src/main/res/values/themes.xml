@@ -4,8 +4,15 @@
         <!-- Cores Padrão M3 -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorPrimaryContainer">@color/colorPrimaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/colorOnPrimaryContainer</item>
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorSecondaryContainer">@color/colorSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/colorOnSecondaryContainer</item>
+        <item name="colorTertiary">@color/colorTertiary</item>
+        <item name="colorOnTertiary">@color/colorOnTertiary</item>
+        <item name="android:colorBackground">@color/background_light</item>
         <item name="colorSurface">@color/colorSurface</item>
         <item name="colorOnSurface">@color/colorOnSurface</item>
         <item name="colorSurfaceVariant">@color/colorSurfaceVariant</item>
@@ -13,11 +20,37 @@
         <item name="colorOutline">@color/colorOutline</item>
         <item name="colorOutlineVariant">@color/colorOutlineVariant</item>
 
+        <!-- Superfícies Puras sem Overlay Tint (Alta Visibilidade Solar) -->
+        <item name="elevationOverlayEnabled">false</item>
+        <item name="elevationOverlayColor">@android:color/transparent</item>
+        <item name="colorSurfaceContainerLow">@color/white</item>
+        <item name="colorSurfaceContainer">@color/white</item>
+        <item name="colorSurfaceContainerHigh">@color/white</item>
+        <item name="colorSurfaceContainerHighest">@color/white</item>
+
         <!-- Cores Customizadas -->
         <item name="fabBackgroundColor">@color/custom_fab_background_color</item>
         <item name="fabIconColor">@color/custom_fab_icon_color</item>
         <item name="roundedBackgroundColor">@color/custom_rounded_background</item>
         <item name="roundedBackgroundStrokeColor">@color/custom_rounded_stroke</item>
+
+        <!-- Tipografia Institucional (Montserrat) -->
+        <item name="fontFamily">@font/montserrat</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+
+        <!-- Mapeamento Tipográfico M3 -->
+        <item name="textAppearanceDisplayLarge">@style/TextAppearance.Plantadeira.DisplayLarge</item>
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.Plantadeira.DisplayMedium</item>
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.Plantadeira.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.Plantadeira.HeadlineMedium</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.Plantadeira.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.Plantadeira.TitleMedium</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.Plantadeira.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.Plantadeira.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.Plantadeira.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.Plantadeira.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.Plantadeira.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.Plantadeira.LabelSmall</item>
 
         <!-- Edge-to-edge -->
         <item name="android:statusBarColor">@android:color/transparent</item>
@@ -26,4 +59,104 @@
     </style>
 
     <style name="Theme.Plantadeira" parent="Base.Theme.Plantadeira" />
+
+    <!-- Estilos de Tipografia Institucional (Montserrat SIL / Google Fonts) -->
+    <!-- Destaques Numéricos & KPIs (Montserrat Black / Extra Bold) -->
+    <style name="TextAppearance.Plantadeira.DisplayLarge" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="fontFamily">@font/montserrat_black</item>
+        <item name="android:fontFamily">@font/montserrat_black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Plantadeira.DisplayMedium" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="fontFamily">@font/montserrat_black</item>
+        <item name="android:fontFamily">@font/montserrat_black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Plantadeira.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="fontFamily">@font/montserrat_extrabold</item>
+        <item name="android:fontFamily">@font/montserrat_extrabold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Plantadeira.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="fontFamily">@font/montserrat_extrabold</item>
+        <item name="android:fontFamily">@font/montserrat_extrabold</item>
+    </style>
+
+    <!-- Subtítulos e Rótulos de Seções (Montserrat Semi Bold) -->
+    <style name="TextAppearance.Plantadeira.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/montserrat_semibold</item>
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Plantadeira.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@font/montserrat_semibold</item>
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Texto Corrido e Parâmetros (Montserrat Regular - Alto Contraste) -->
+    <style name="TextAppearance.Plantadeira.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="TextAppearance.Plantadeira.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="TextAppearance.Plantadeira.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <!-- Rótulos e Botões (Montserrat Semi Bold) -->
+    <style name="TextAppearance.Plantadeira.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/montserrat_semibold</item>
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Plantadeira.LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <!-- Metadados e Informações Secundárias (Montserrat Light) -->
+    <style name="TextAppearance.Plantadeira.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="fontFamily">@font/montserrat_light</item>
+        <item name="android:fontFamily">@font/montserrat_light</item>
+    </style>
+
+    <!-- Componentes de Alta Ergonomia para Cabine Agrícola -->
+    <!-- Botão de Toggle com Área de Toque Mínima de 48dp e Acentos Amarelos -->
+    <style name="Widget.Plantadeira.Button.Toggle" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:paddingHorizontal">6dp</item>
+        <item name="backgroundTint">@color/toggle_button_background</item>
+        <item name="android:textColor">@color/toggle_button_text</item>
+        <item name="strokeColor">@color/toggle_button_stroke</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="fontFamily">@font/montserrat_semibold</item>
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+    </style>
+
+    <!-- Chips Rápidos com Área de Toque Mínima de 48dp -->
+    <style name="Widget.Plantadeira.Button.Chip" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:paddingHorizontal">14dp</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="strokeColor">@color/neutral_border</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="fontFamily">@font/montserrat_semibold</item>
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+    </style>
+
 </resources>

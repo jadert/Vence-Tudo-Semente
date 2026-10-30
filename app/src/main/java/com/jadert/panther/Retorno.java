@@ -2,9 +2,14 @@ package com.jadert.panther;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.TypedValue;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.material.appbar.MaterialToolbar;
@@ -61,7 +66,6 @@ public class Retorno extends AppCompatActivity {
     private TextView resultadoSementesTextView;
     private TextView txtAlvoSolicitado, txtDiferenca;
     private TextView resultadoEixoA, resultadoEixoB, resultadoEixoC, resultadoEixoD;
-    private TextView badgeEixoCFixo, badgeEixoDFixo;
     private MaterialButtonToggleGroup toggleAbaixoAcima, toggleFacilProximo;
 
     // --- Variáveis para armazenar os 4 resultados principais ---
@@ -78,6 +82,7 @@ public class Retorno extends AppCompatActivity {
         inicializarUI();
         configurarNavegacao();
         configurarListeners();
+        configurarWindowInsets();
 
         // Obter dados da Intent com segurança
         Intent intent = getIntent();
@@ -97,9 +102,6 @@ public class Retorno extends AppCompatActivity {
         resultadoEixoB = findViewById(R.id.resultadoEixoB);
         resultadoEixoC = findViewById(R.id.resultadoEixoC);
         resultadoEixoD = findViewById(R.id.resultadoEixoD);
-
-        badgeEixoCFixo = findViewById(R.id.badgeEixoCFixo);
-        badgeEixoDFixo = findViewById(R.id.badgeEixoDFixo);
 
         toggleAbaixoAcima = findViewById(R.id.toggleAbaixoAcima);
         toggleFacilProximo = findViewById(R.id.toggleFacilProximo);
@@ -122,6 +124,24 @@ public class Retorno extends AppCompatActivity {
         toggleFacilProximo.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
             if (isChecked) updateUI();
         });
+    }
+
+    private void configurarWindowInsets() {
+        View contentContainer = findViewById(R.id.contentContainerRetorno);
+        if (contentContainer != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(contentContainer, (v, windowInsets) -> {
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                int baseBottom = (int) TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics());
+                v.setPadding(
+                        v.getPaddingLeft(),
+                        v.getPaddingTop(),
+                        v.getPaddingRight(),
+                        insets.bottom + baseBottom
+                );
+                return windowInsets;
+            });
+        }
     }
 
     private int obterSementesAlvo(Intent intent) {
@@ -254,16 +274,6 @@ public class Retorno extends AppCompatActivity {
         } else {
             double percent = (diff / (double) sementesAlvo) * 100.0;
             txtDiferenca.setText(getString(R.string.diferenca_formato, diff, percent));
-        }
-
-        // Rótulos de eixos fixos no modo fácil
-        boolean isFacil = toggleFacilProximo.getCheckedButtonId() == R.id.btnFacil;
-        if (isFacil) {
-            badgeEixoCFixo.setText(getString(R.string.fixo_rotulo));
-            badgeEixoDFixo.setText(getString(R.string.fixo_rotulo));
-        } else {
-            badgeEixoCFixo.setText(getString(R.string.eixo_c_desc));
-            badgeEixoDFixo.setText(getString(R.string.eixo_d_desc));
         }
     }
 

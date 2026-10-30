@@ -47,12 +47,11 @@
     <string name="eixo_b">Eixo B</string>
     <string name="eixo_c">Eixo C</string>
     <string name="eixo_d">Eixo D</string>
-    <string name="eixo_a_desc">Transmissão</string>
-    <string name="eixo_b_desc">Intermediário</string>
-    <string name="eixo_c_desc">Intermediário</string>
-    <string name="eixo_d_desc">Distribuidor</string>
+    <string name="eixo_a_desc">Motriz</string>
+    <string name="eixo_b_desc">Movida</string>
+    <string name="eixo_c_desc">Motriz</string>
+    <string name="eixo_d_desc">Movida</string>
     <string name="dentes_rotulo">dentes</string>
-    <string name="fixo_rotulo">Fixo (14D)</string>
 
     <!-- Tutorial -->
     <string name="imagem_do_tutorial">Imagem do Tutorial</string>
@@ -64,5 +63,5 @@
 
     <!-- Autoria e Aviso Legal -->
     <string name="desenvolvido">Desenvolvido por Jader Teixeira</string>
-    <string name="aviso_legal">Uso Nominal: Compatível com plantadeiras 4 eixos (Panther e similares). Todas as marcas pertencem a seus respectivos titulares.</string>
+    <string name="aviso_legal">Uso Nominal: Compatível com plantadeiras 4 eixos (Panther e similares).\nTodas as marcas pertencem a seus respectivos titulares.</string>
 </resources>

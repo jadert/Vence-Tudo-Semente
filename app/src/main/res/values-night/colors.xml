@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Cores Semânticas Material 3 (Tema Noturno / Cabine Noturna) -->
-    <color name="colorPrimary">#FF6B6E</color>
-    <color name="colorOnPrimary">#460E0F</color>
-    <color name="colorSecondary">#ECCA00</color>
-    <color name="colorOnSecondary">#373636</color>
-    <color name="colorSurface">#1E1E1E</color>
-    <color name="colorOnSurface">#F8F9FA</color>
-    <color name="colorSurfaceVariant">#373636</color>
-    <color name="colorOnSurfaceVariant">#C6C6C6</color>
-    <color name="colorOutline">#575756</color>
-    <color name="colorOutlineVariant">#373636</color>
+    <color name="colorPrimary">@color/brand_primary</color>
+    <color name="colorOnPrimary">@color/white</color>
+    <color name="colorPrimaryContainer">@color/brand_primary_deep</color>
+    <color name="colorOnPrimaryContainer">@color/white</color>
+    <color name="colorSecondary">@color/brand_secondary</color>
+    <color name="colorOnSecondary">@color/brand_on_secondary</color>
+    <color name="colorSecondaryContainer">@color/brand_secondary_warm</color>
+    <color name="colorOnSecondaryContainer">@color/brand_on_secondary</color>
+    <color name="colorTertiary">@color/brand_secondary_warm</color>
+    <color name="colorOnTertiary">@color/brand_on_secondary</color>
+    <color name="colorSurface">@color/dark_surface</color>
+    <color name="colorOnSurface">@color/background_light</color>
+    <color name="colorSurfaceVariant">#262626</color>
+    <color name="colorOnSurfaceVariant">@color/neutral_border</color>
+    <color name="colorOutline">@color/neutral_dark</color>
+    <color name="colorOutlineVariant">@color/neutral_dark</color>
 
     <!-- Cores Customizadas (Tema Escuro) -->
-    <color name="custom_fab_background_color">#575756</color>
-    <color name="custom_fab_icon_color">#FFFFFF</color>
-    <color name="custom_rounded_background">#2C2C2E</color>
-    <color name="custom_rounded_stroke">#575756</color>
+    <color name="custom_fab_background_color">@color/neutral_dark</color>
+    <color name="custom_fab_icon_color">@color/white</color>
+    <color name="custom_rounded_background">@color/dark_surface</color>
+    <color name="custom_rounded_stroke">@color/neutral_dark</color>
 </resources>
