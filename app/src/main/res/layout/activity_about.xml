@@ -1,133 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="?attr/colorSurface"
     tools:context=".About">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/voltar"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayoutAbout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="true"
-        android:contentDescription="@string/title_activity_retorno"
-        app:backgroundTint="?attr/fabBackgroundColor"
-        app:tint="?attr/fabIconColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_revert"
-        android:focusable="true" />
+        android:background="?attr/colorSurface">
 
-    <LinearLayout
-        android:id="@+id/copyrightContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif-light"
-            android:gravity="center"
-            android:text="@string/aviso_legal"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/desenvolvido"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/navigationContainer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/rounded_background"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/copyrightContainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPrevious"
-            style="@style/Widget.Material3.Button.IconButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/anterior"
-            android:minWidth="48dp"
-            android:text="◀"
-            android:textColor="?attr/colorPrimary"
-            tools:ignore="HardcodedText" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNext"
-            style="@style/Widget.Material3.Button.IconButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/proximo"
-            android:minWidth="48dp"
-            android:text="▶"
-            android:textColor="?attr/colorPrimary"
-            tools:ignore="HardcodedText" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/tutorialContainer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/navigationContainer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/voltar">
-
-        <TextView
-            android:id="@+id/tutorialText"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarAbout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:lineSpacingExtra="4dp"
-            android:padding="16dp"
-            android:text="Texto do tutorial aparecerá aqui"
-            android:textColor="?attr/colorOnSurface"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText" />
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationContentDescription="@string/back_button_description"
+            app:title="@string/title_activity_about"
+            app:titleCentered="false"
+            app:titleTextAppearance="?attr/textAppearanceTitleLarge" />
 
-        <ImageView
-            android:id="@+id/tutorialImage"
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- ViewPager2 para navegação fluida por gestos de deslize (swipe) -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerTutorial"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/imagem_do_tutorial"
-            android:scaleType="fitCenter"
-            android:src="@drawable/tutorial_1"
-            tools:ignore="ImageContrastCheck" />
+            android:layout_weight="1" />
+
+        <!-- Barra de Navegação e Indicador de Passos -->
+        <LinearLayout
+            android:id="@+id/navigationContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPrevious"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:contentDescription="@string/anterior"
+                android:text="@string/anterior"
+                app:icon="@drawable/ic_arrow_back" />
+
+            <TextView
+                android:id="@+id/txtIndicadorPasso"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                tools:text="Passo 1 de 5" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:contentDescription="@string/proximo"
+                android:text="@string/proximo"
+                app:icon="@drawable/ic_arrow_forward"
+                app:iconGravity="textEnd" />
+
+        </LinearLayout>
+
+        <!-- Informações de Copyright e Aviso Legal -->
+        <LinearLayout
+            android:id="@+id/copyrightContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:id="@+id/textViewAviso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:text="@string/aviso_legal"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:textSize="11sp"
+                android:layout_marginBottom="2dp" />
+
+            <TextView
+                android:id="@+id/textViewAutor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/desenvolvido"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

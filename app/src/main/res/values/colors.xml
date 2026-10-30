@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Cores Base -->
-    <color name="red_brand">#D43034</color>
+    <!-- Cores Institucionais e Técnicas (Pantone Maquinário Agrícola) -->
+    <color name="brand_primary">#CE0B10</color>           <!-- Vermelho Institucional - Pantone 186C -->
+    <color name="brand_primary_dark">#8D1913</color>      <!-- Hover / Dark Accent -->
+    <color name="brand_primary_deep">#460E0F</color>      <!-- Dark Border / Max Contrast -->
+    <color name="brand_secondary">#ECCA00</color>         <!-- Amarelo Principal - Pantone 7405C -->
+    <color name="brand_secondary_warm">#E7B104</color>    <!-- Amarelo Ouro / Trigo - Pantone 124C -->
+
+    <!-- Neutros e Superfícies Industriais -->
+    <color name="dark_surface">#373636</color>           <!-- Cinza Escuro Institucional - K 92% -->
+    <color name="neutral_dark">#575756</color>           <!-- Cinza K 80% (Texto secundário) -->
+    <color name="neutral_border">#C6C6C6</color>         <!-- Cinza K 30% (Divisores e bordas) -->
+    <color name="background_light">#F8F9FA</color>       <!-- Fundo da tela em alta luminosidade -->
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
-    <color name="grey_light">#F5F5F5</color>
-    <color name="grey_stroke">#E0E0E0</color>
-    <color name="grey_fab">#646464</color>
 
-    <!-- Cores Semânticas (Tema Claro) -->
-    <color name="colorPrimary">@color/red_brand</color>
+    <!-- Mapeamento Semântico Material 3 (Tema Claro) -->
+    <color name="colorPrimary">@color/brand_primary</color>
     <color name="colorOnPrimary">@color/white</color>
-    <color name="colorSurface">#FFFBFE</color>
-    <color name="colorOnSurface">#1C1B1F</color>
-    <color name="colorSurfaceVariant">#E7E0EC</color>
-    <color name="colorOnSurfaceVariant">#49454F</color>
+    <color name="colorSecondary">@color/brand_secondary</color>
+    <color name="colorOnSecondary">@color/dark_surface</color>
+    <color name="colorSurface">@color/white</color>
+    <color name="colorOnSurface">@color/dark_surface</color>
+    <color name="colorSurfaceVariant">@color/background_light</color>
+    <color name="colorOnSurfaceVariant">@color/neutral_dark</color>
+    <color name="colorOutline">@color/neutral_border</color>
+    <color name="colorOutlineVariant">#E0E0E0</color>
 
-    <!-- Cores Customizadas (Tema Claro) -->
-    <color name="custom_fab_background_color">@color/grey_fab</color>
+    <!-- Legado / Custom -->
+    <color name="custom_fab_background_color">@color/dark_surface</color>
     <color name="custom_fab_icon_color">@color/white</color>
-    <color name="custom_rounded_background">@color/grey_light</color>
-    <color name="custom_rounded_stroke">@color/grey_stroke</color>
+    <color name="custom_rounded_background">@color/background_light</color>
+    <color name="custom_rounded_stroke">@color/neutral_border</color>
 </resources>

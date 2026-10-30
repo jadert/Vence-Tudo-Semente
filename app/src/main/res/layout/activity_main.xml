@@ -1,83 +1,280 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:paddingHorizontal="16dp"
+    android:background="?attr/colorSurface"
     tools:context=".MainActivity">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/mostraInfo"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="true"
-        android:contentDescription="@string/informa_es"
-        android:focusable="true"
-        app:backgroundTint="?attr/colorSurfaceVariant"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_help_outline"
-        app:tint="?attr/colorOnSurfaceVariant" />
+        android:background="?attr/colorSurface">
 
-    <TextView
-        android:id="@+id/labelSementes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/sementes_por_metro"
-        android:textAppearance="?attr/textAppearanceTitleLarge"
-        app:layout_constraintBottom_toTopOf="@+id/numberPicker"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/app_full_name"
+            app:titleCentered="false"
+            app:titleTextAppearance="?attr/textAppearanceTitleLarge">
 
-    <NumberPicker
-        android:id="@+id/numberPicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleX="1.5"
-        android:scaleY="1.5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mostraInfo"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/informa_es"
+                app:icon="@drawable/ic_help_outline"
+                app:iconTint="?attr/colorPrimary" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/furosInputLayout"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:hint="@string/furos_do_disco"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberPicker"
-        app:layout_constraintWidth_max="400dp">
+        </com.google.android.material.appbar.MaterialToolbar>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/furosEditText"
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:singleLine="true"
-            android:textColor="?attr/colorOnSurface"
-        />
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="24dp">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:layout_marginBottom="16dp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/calcular"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/furosInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/furosInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/furosInputLayout" />
+            <!-- Card para Seleção de Sementes por Metro -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSementes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="?attr/colorOutlineVariant">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/labelSementes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sementes_por_metro"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sementes_hint"
+                        android:textAppearance="?attr/textAppearanceBodySmall"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Stepper com Menos, Campo Central e Mais -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginBottom="12dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMenosSementes"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:contentDescription="@string/anterior"
+                            app:icon="@drawable/ic_remove"
+                            app:iconGravity="textStart"
+                            app:iconPadding="0dp"
+                            app:cornerRadius="28dp" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/sementesInputLayout"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="16dp"
+                            app:hintEnabled="false">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/sementesEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:maxLength="3"
+                                android:text="12"
+                                android:textSize="32sp"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorPrimary" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMaisSementes"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:contentDescription="@string/proximo"
+                            app:icon="@drawable/ic_add"
+                            app:iconGravity="textStart"
+                            app:iconPadding="0dp"
+                            app:cornerRadius="28dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unidade_sementes_metro"
+                        android:textAppearance="?attr/textAppearanceLabelMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card para Furos do Disco -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardFuros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="?attr/colorOutlineVariant">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/furos_do_disco"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceBodySmall"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:layout_marginBottom="12dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/furosInputLayout"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/furos_do_disco"
+                        app:helperTextEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/furosEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:singleLine="true"
+                            android:textColor="?attr/colorOnSurface"
+                            android:textSize="18sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Chips com atalhos para os discos mais comuns -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Comuns:"
+                            android:textAppearance="?attr/textAppearanceLabelMedium"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:layout_marginEnd="8dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/chipFuros28"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:layout_marginEnd="6dp"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="0dp"
+                            android:text="28 furos"
+                            android:textSize="12sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/chipFuros45"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:layout_marginEnd="6dp"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="0dp"
+                            android:text="45 furos"
+                            android:textSize="12sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/chipFuros90"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="0dp"
+                            android:text="90 furos"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Botão Principal de Ação -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="@string/calcular"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="14dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

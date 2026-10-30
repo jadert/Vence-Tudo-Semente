@@ -7,18 +7,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.NumberPicker;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-// Importe a classe TextInputLayout
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
-    private NumberPicker numberPicker;
-    // Mude de EditText para TextInputEditText para mais clareza
+    private EditText sementesEditText;
+    private TextInputLayout sementesInputLayout;
     private EditText furosEditText;
-    // Adicione a referência para o TextInputLayout
     private TextInputLayout furosInputLayout;
+
+    private static final int SEMENTES_MIN = 1;
+    private static final int SEMENTES_MAX = 100;
+    private static final int FUROS_MIN = 1;
+    private static final int FUROS_MAX = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,51 +28,110 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        Button button = findViewById(R.id.button);
-        numberPicker = findViewById(R.id.numberPicker);
-        // Atualize as referências para os novos IDs
+        initViews();
+        setupListeners();
+    }
+
+    private void initViews() {
+        sementesEditText = findViewById(R.id.sementesEditText);
+        sementesInputLayout = findViewById(R.id.sementesInputLayout);
         furosEditText = findViewById(R.id.furosEditText);
         furosInputLayout = findViewById(R.id.furosInputLayout);
-        FloatingActionButton info = findViewById(R.id.mostraInfo);
+    }
 
-        numberPicker.setMinValue(1);
-        numberPicker.setMaxValue(40);
-        numberPicker.setValue(12);
+    private void setupListeners() {
+        MaterialButton info = findViewById(R.id.mostraInfo);
+        Button button = findViewById(R.id.button);
+        MaterialButton btnMenos = findViewById(R.id.btnMenosSementes);
+        MaterialButton btnMais = findViewById(R.id.btnMaisSementes);
+
+        MaterialButton chip28 = findViewById(R.id.chipFuros28);
+        MaterialButton chip45 = findViewById(R.id.chipFuros45);
+        MaterialButton chip90 = findViewById(R.id.chipFuros90);
 
         info.setOnClickListener(view -> openAbout());
 
-        button.setOnClickListener(view -> {
-            // Limpa o erro anterior antes de tentar de novo
-            furosInputLayout.setError(null);
+        btnMenos.setOnClickListener(v -> alterarSementes(-1));
+        btnMais.setOnClickListener(v -> alterarSementes(1));
 
-            int sementes = numberPicker.getValue();
-            try {
-                // Verificação para garantir que o campo não está vazio
-                String furosStr = furosEditText.getText().toString();
-                if (furosStr.isEmpty()) {
-                    // Exibe o erro diretamente no campo de texto
-                    furosInputLayout.setError(getString(R.string.erro_campo_obrigatorio));
-                    return;
-                }
+        chip28.setOnClickListener(v -> setFurosRapido("28"));
+        chip45.setOnClickListener(v -> setFurosRapido("45"));
+        chip90.setOnClickListener(v -> setFurosRapido("90"));
 
-                int furos =  Integer.parseInt(furosStr);
-                if (furos > 200) {
-                    furos = 200;
-                } else if (furos < 1) {
-                    furos = 1;
-                }
-                openActivity(sementes, furos);
-            } catch (NumberFormatException e) {
-                // Esta exceção é menos provável com inputType="number", mas é bom manter
-                furosInputLayout.setError(getString(R.string.erro_numero_invalido));
+        button.setOnClickListener(view -> validarECalcular());
+    }
+
+    private void setFurosRapido(String valor) {
+        furosEditText.setText(valor);
+        furosEditText.setSelection(valor.length());
+        furosInputLayout.setError(null);
+    }
+
+    private void alterarSementes(int delta) {
+        int atual = obterValorSementesAtual();
+        int novo = Math.max(SEMENTES_MIN, Math.min(SEMENTES_MAX, atual + delta));
+        sementesEditText.setText(String.valueOf(novo));
+        sementesEditText.setSelection(sementesEditText.getText().length());
+        sementesInputLayout.setError(null);
+    }
+
+    private int obterValorSementesAtual() {
+        try {
+            String str = sementesEditText.getText().toString().trim();
+            if (str.isEmpty()) return 12;
+            return Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            return 12;
+        }
+    }
+
+    private void validarECalcular() {
+        sementesInputLayout.setError(null);
+        furosInputLayout.setError(null);
+
+        String sementesStr = sementesEditText.getText().toString().trim();
+        if (sementesStr.isEmpty()) {
+            sementesInputLayout.setError(getString(R.string.erro_campo_obrigatorio));
+            return;
+        }
+
+        int sementes;
+        try {
+            sementes = Integer.parseInt(sementesStr);
+            if (sementes < SEMENTES_MIN || sementes > SEMENTES_MAX) {
+                sementesInputLayout.setError(getString(R.string.erro_intervalo_sementes));
+                return;
             }
-        });
+        } catch (NumberFormatException e) {
+            sementesInputLayout.setError(getString(R.string.erro_numero_invalido));
+            return;
+        }
+
+        String furosStr = furosEditText.getText().toString().trim();
+        if (furosStr.isEmpty()) {
+            furosInputLayout.setError(getString(R.string.erro_campo_obrigatorio));
+            return;
+        }
+
+        int furos;
+        try {
+            furos = Integer.parseInt(furosStr);
+            if (furos < FUROS_MIN || furos > FUROS_MAX) {
+                furosInputLayout.setError(getString(R.string.erro_intervalo_furos));
+                return;
+            }
+        } catch (NumberFormatException e) {
+            furosInputLayout.setError(getString(R.string.erro_numero_invalido));
+            return;
+        }
+
+        openActivity(sementes, furos);
     }
 
     public void openActivity(int sementes, int furos) {
         Intent intent = new Intent(this, Retorno.class);
-        intent.putExtra("sementes",String.valueOf(sementes));
-        intent.putExtra("furos",String.valueOf(furos));
+        intent.putExtra("sementes", String.valueOf(sementes));
+        intent.putExtra("furos", String.valueOf(furos));
         startActivity(intent);
     }
 

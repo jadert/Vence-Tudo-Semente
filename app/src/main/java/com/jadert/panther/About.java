@@ -1,22 +1,29 @@
 package com.jadert.panther;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.activity.EdgeToEdge;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
-import androidx.activity.EdgeToEdge;
 
 public class About extends AppCompatActivity {
 
-    private ImageView tutorialImage;
-    private TextView tutorialText;
+    private ViewPager2 viewPager;
+    private TextView txtIndicadorPasso;
     private MaterialButton btnPrevious, btnNext;
-    private int currentPage = 0;
+
+    private static final String KEY_CURRENT_PAGE = "key_current_page";
+    private int savedPageIndex = 0;
 
     private final int[] tutorialImages = {
             R.drawable.tutorial_1,
@@ -26,12 +33,12 @@ public class About extends AppCompatActivity {
             R.drawable.tutorial_5
     };
 
-    private final String[] tutorialTexts = {
-            "O primeiro passo é inserir a quantidade de sementes por metro desejadas e a quantidade de furos no disco utilizado, feito isso clique em calcular.",
-            "Se o valor exato de sementes não for encontrado, será buscado o mais próximo acima ou abaixo do valor desejado. Você pode selecionar qual deseja",
-            "Também existe a opção de regulagem mais fácil onde você vai mudar apenas os eixos A e B, ou pode buscar a configuração mais próxima possível do valor desejado",
-            "Aqui é mostrada qual engrenagem deve ser colocada em cada eixo bem como a quantidade real de sementes, você pode alterar as opções de ajuste livremente.",
-            "Esse é um diagrama dos eixos na plantadeira e com seu respectivo nome, sendo eles: Eixo A, Eixo B, Eixo C e Eixo D."
+    private final int[] tutorialTextsRes = {
+            R.string.tutorial_passo_1,
+            R.string.tutorial_passo_2,
+            R.string.tutorial_passo_3,
+            R.string.tutorial_passo_4,
+            R.string.tutorial_passo_5
     };
 
     @Override
@@ -40,57 +47,125 @@ public class About extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_about);
 
+        if (savedInstanceState != null) {
+            savedPageIndex = savedInstanceState.getInt(KEY_CURRENT_PAGE, 0);
+        }
+
         initViews();
+        setupNavigationToolbar();
+        setupViewPager();
         setupNavigationButtons();
-        setupFloatingActionButton();
-        updateTutorialContent();
     }
 
     private void initViews() {
-        tutorialImage = findViewById(R.id.tutorialImage);
-        tutorialText = findViewById(R.id.tutorialText);
+        viewPager = findViewById(R.id.viewPagerTutorial);
+        txtIndicadorPasso = findViewById(R.id.txtIndicadorPasso);
         btnPrevious = findViewById(R.id.btnPrevious);
         btnNext = findViewById(R.id.btnNext);
     }
 
+    private void setupNavigationToolbar() {
+        MaterialToolbar toolbar = findViewById(R.id.toolbarAbout);
+        toolbar.setNavigationOnClickListener(v -> finish());
+    }
+
+    private void setupViewPager() {
+        TutorialAdapter adapter = new TutorialAdapter(tutorialImages, tutorialTextsRes);
+        viewPager.setAdapter(adapter);
+
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                atualizarControles(position);
+            }
+        });
+
+        if (savedPageIndex >= 0 && savedPageIndex < tutorialImages.length) {
+            viewPager.setCurrentItem(savedPageIndex, false);
+        }
+    }
+
     private void setupNavigationButtons() {
         btnPrevious.setOnClickListener(v -> {
-            if (currentPage > 0) {
-                currentPage--;
-                updateTutorialContent();
+            int current = viewPager.getCurrentItem();
+            if (current > 0) {
+                viewPager.setCurrentItem(current - 1, true);
             }
         });
 
         btnNext.setOnClickListener(v -> {
-            if (currentPage < tutorialImages.length - 1) {
-                currentPage++;
-                updateTutorialContent();
+            int current = viewPager.getCurrentItem();
+            if (current < tutorialImages.length - 1) {
+                viewPager.setCurrentItem(current + 1, true);
+            } else {
+                finish();
             }
         });
     }
 
-    private void updateTutorialContent() {
-        tutorialText.setText(tutorialTexts[currentPage]);
-        tutorialImage.setImageResource(tutorialImages[currentPage]);
-        updateNavigationButtons();
+    private void atualizarControles(int position) {
+        int total = tutorialImages.length;
+        txtIndicadorPasso.setText(getString(R.string.tutorial_passo, position + 1, total));
+
+        btnPrevious.setEnabled(position > 0);
+        btnPrevious.setAlpha(position > 0 ? 1.0f : 0.4f);
+
+        if (position == total - 1) {
+            btnNext.setText(R.string.concluir);
+            btnNext.setIcon(null);
+        } else {
+            btnNext.setText(R.string.proximo);
+            btnNext.setIconResource(R.drawable.ic_arrow_forward);
+        }
     }
 
-    private void updateNavigationButtons() {
-        btnPrevious.setEnabled(currentPage > 0);
-        btnNext.setEnabled(currentPage < tutorialImages.length - 1);
-
-        // Opcional: Mudar a opacidade dos botões desabilitados
-        btnPrevious.setAlpha(currentPage > 0 ? 1.0f : 0.5f);
-        btnNext.setAlpha(currentPage < tutorialImages.length - 1 ? 1.0f : 0.5f);
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (viewPager != null) {
+            outState.putInt(KEY_CURRENT_PAGE, viewPager.getCurrentItem());
+        }
     }
 
-    private void setupFloatingActionButton() {
-        FloatingActionButton voltar = findViewById(R.id.voltar);
-        voltar.setOnClickListener(view -> openActivity());
-    }
+    // --- Adaptador do ViewPager2 ---
+    private static class TutorialAdapter extends RecyclerView.Adapter<TutorialAdapter.ViewHolder> {
+        private final int[] images;
+        private final int[] texts;
 
-    public void openActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        TutorialAdapter(int[] images, int[] texts) {
+            this.images = images;
+            this.texts = texts;
+        }
+
+        @NonNull
+        @Override
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_tutorial_slide, parent, false);
+            return new ViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+            holder.text.setText(texts[position]);
+            holder.image.setImageResource(images[position]);
+        }
+
+        @Override
+        public int getItemCount() {
+            return images.length;
+        }
+
+        static class ViewHolder extends RecyclerView.ViewHolder {
+            final TextView text;
+            final ImageView image;
+
+            ViewHolder(@NonNull View itemView) {
+                super(itemView);
+                text = itemView.findViewById(R.id.slideText);
+                image = itemView.findViewById(R.id.slideImage);
+            }
+        }
     }
 }

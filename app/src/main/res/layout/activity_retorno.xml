@@ -1,115 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="?attr/colorSurface"
     tools:context=".Retorno">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/voltar"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayoutRetorno"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="true"
-        android:contentDescription="@string/back_button_description"
-        android:focusable="true"
-        app:backgroundTint="?attr/fabBackgroundColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_revert"
-        app:tint="?attr/fabIconColor"
-        tools:ignore="SpeakableTextPresentCheck" />
+        android:background="?attr/colorSurface">
 
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarRetorno"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationContentDescription="@string/back_button_description"
+            app:title="@string/title_activity_retorno"
+            app:titleCentered="false"
+            app:titleTextAppearance="?attr/textAppearanceTitleLarge" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:clipToPadding="false"
-        app:layout_constraintTop_toBottomOf="@+id/voltar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
-
-            <!-- CardView para agrupar e contextualizar os Switches -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardSwitches"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
-                        android:text="@string/opcoes_visualizacao"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <!-- MODIFICAÇÃO AQUI: Layout dos Switches agora vertical -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"> <!-- Alterado para vertical -->
-
-                        <androidx.appcompat.widget.SwitchCompat
-                            android:id="@+id/switchAcimaAbaixo"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:text="@string/switch_abaixo_acima"
-                            android:textSize="16sp"
-                            tools:ignore="UseSwitchCompatForToggleGroup,VisualLintButtonSize" />
-
-                        <androidx.appcompat.widget.SwitchCompat
-                            android:id="@+id/switchFacilProximo"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/switch_facil_proximo"
-                            android:textSize="16sp"
-                            tools:ignore="UseSwitchCompatForToggleGroup" />
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            android:paddingHorizontal="20dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="24dp">
 
             <!-- CardView para o Resultado Principal de Sementes (destaque) -->
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardResultadoSementes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp">
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="?attr/colorOutlineVariant">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="24dp">
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="24dp">
 
                     <TextView
                         android:id="@+id/resultadoSementes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="?attr/colorPrimary"
-                        android:textSize="60sp"
+                        android:textSize="58sp"
                         android:textStyle="bold"
                         tools:text="11.85" />
 
@@ -117,133 +72,409 @@
                         android:id="@+id/textViewSementesLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:alpha="0.7"
-                        android:text="@string/sementes_por_metro"
-                        android:textSize="18sp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                        android:layout_marginTop="2dp"
+                        android:text="@string/unidade_sementes_metro"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
 
-            <!-- LinearLayout para a Distribuição por Eixos -->
-            <LinearLayout
-                android:id="@+id/layoutEixos"
+                    <!-- Comparativo: Alvo vs Real -->
+                    <LinearLayout
+                        android:id="@+id/layoutComparativo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/rounded_background"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp">
+
+                        <TextView
+                            android:id="@+id/txtAlvoSolicitado"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?attr/textAppearanceLabelLarge"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorOnSurface"
+                            tools:text="Alvo: 12 sem/m" />
+
+                        <TextView
+                            android:id="@+id/txtDiferenca"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:textAppearance="?attr/textAppearanceBodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            tools:text="Diferença: -0.15 sem/m (-1.2%)" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card com os Controles Segmentados (MaterialButtonToggleGroup) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardAjustes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_background"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="?attr/colorOutlineVariant">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:text="@string/distribuicao_por_eixos"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <!-- Eixo A -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="8dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="A:"
+                        android:text="@string/opcoes_visualizacao"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
                         android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:layout_marginEnd="8dp"
-                        android:textColor="?attr/colorOnSurface"
-                        tools:ignore="HardcodedText" />
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- Grupo 1: Tolerância (Abaixo / Acima) -->
                     <TextView
-                        android:id="@+id/resultadoEixoA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:textColor="?attr/colorOnSurface"
-                        tools:text="24"/>
+                        android:text="@string/ajuste_tolerancia_label"
+                        android:textAppearance="?attr/textAppearanceLabelMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:layout_marginBottom="6dp" />
+
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggleAbaixoAcima"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnAbaixo"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/btn_abaixo"
+                            android:textSize="13sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnAcima"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/btn_acima"
+                            android:textSize="13sp" />
+
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                    <!-- Grupo 2: Modo de Troca (Fácil / Mais Próximo) -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ajuste_complexidade_label"
+                        android:textAppearance="?attr/textAppearanceLabelMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:layout_marginBottom="6dp" />
+
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggleFacilProximo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFacil"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/btn_facil"
+                            android:textSize="13sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnProximo"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/btn_proximo"
+                            android:textSize="13sp" />
+
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
                 </LinearLayout>
 
-                <!-- Eixo B -->
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card com a Configuração dos Eixos em Grid 2x2 -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardEixos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="?attr/colorOutlineVariant">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="8dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="B:"
+                        android:text="@string/distribuicao_por_eixos"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
                         android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:layout_marginEnd="8dp"
-                        android:textColor="?attr/colorOnSurface"
-                        tools:ignore="HardcodedText" />
-                    <TextView
-                        android:id="@+id/resultadoEixoB"
-                        android:layout_width="wrap_content"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Linha 1: Eixo A e Eixo B -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:textColor="?attr/colorOnSurface"
-                        tools:text="15"/>
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+
+                        <!-- Eixo A -->
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/Widget.Material3.CardView.Filled"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="6dp"
+                            app:cardCornerRadius="12dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/eixo_a"
+                                    android:textAppearance="?attr/textAppearanceLabelLarge"
+                                    android:textStyle="bold"
+                                    android:textColor="?attr/colorPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/eixo_a_desc"
+                                    android:textAppearance="?attr/textAppearanceLabelSmall"
+                                    android:textColor="?attr/colorOnSurfaceVariant"
+                                    android:layout_marginBottom="8dp" />
+
+                                <TextView
+                                    android:id="@+id/resultadoEixoA"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="32sp"
+                                    android:textStyle="bold"
+                                    android:textColor="?attr/colorOnSurface"
+                                    tools:text="24" />
+
+                                <TextView
+                                    android:id="@+id/labelDentesA"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/dentes_rotulo"
+                                    android:textAppearance="?attr/textAppearanceLabelSmall"
+                                    android:textColor="?attr/colorOnSurfaceVariant" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Eixo B -->
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/Widget.Material3.CardView.Filled"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="6dp"
+                            app:cardCornerRadius="12dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/eixo_b"
+                                    android:textAppearance="?attr/textAppearanceLabelLarge"
+                                    android:textStyle="bold"
+                                    android:textColor="?attr/colorPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/eixo_b_desc"
+                                    android:textAppearance="?attr/textAppearanceLabelSmall"
+                                    android:textColor="?attr/colorOnSurfaceVariant"
+                                    android:layout_marginBottom="8dp" />
+
+                                <TextView
+                                    android:id="@+id/resultadoEixoB"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="32sp"
+                                    android:textStyle="bold"
+                                    android:textColor="?attr/colorOnSurface"
+                                    tools:text="15" />
+
+                                <TextView
+                                    android:id="@+id/labelDentesB"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/dentes_rotulo"
+                                    android:textAppearance="?attr/textAppearanceLabelSmall"
+                                    android:textColor="?attr/colorOnSurfaceVariant" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                    <!-- Linha 2: Eixo C e Eixo D -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- Eixo C -->
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/Widget.Material3.CardView.Filled"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="6dp"
+                            app:cardCornerRadius="12dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/eixo_c"
+                                    android:textAppearance="?attr/textAppearanceLabelLarge"
+                                    android:textStyle="bold"
+                                    android:textColor="?attr/colorPrimary" />
+
+                                <TextView
+                                    android:id="@+id/badgeEixoCFixo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/eixo_c_desc"
+                                    android:textAppearance="?attr/textAppearanceLabelSmall"
+                                    android:textColor="?attr/colorOnSurfaceVariant"
+                                    android:layout_marginBottom="8dp" />
+
+                                <TextView
+                                    android:id="@+id/resultadoEixoC"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="32sp"
+                                    android:textStyle="bold"
+                                    android:textColor="?attr/colorOnSurface"
+                                    tools:text="14" />
+
+                                <TextView
+                                    android:id="@+id/labelDentesC"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/dentes_rotulo"
+                                    android:textAppearance="?attr/textAppearanceLabelSmall"
+                                    android:textColor="?attr/colorOnSurfaceVariant" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Eixo D -->
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/Widget.Material3.CardView.Filled"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="6dp"
+                            app:cardCornerRadius="12dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/eixo_d"
+                                    android:textAppearance="?attr/textAppearanceLabelLarge"
+                                    android:textStyle="bold"
+                                    android:textColor="?attr/colorPrimary" />
+
+                                <TextView
+                                    android:id="@+id/badgeEixoDFixo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/eixo_d_desc"
+                                    android:textAppearance="?attr/textAppearanceLabelSmall"
+                                    android:textColor="?attr/colorOnSurfaceVariant"
+                                    android:layout_marginBottom="8dp" />
+
+                                <TextView
+                                    android:id="@+id/resultadoEixoD"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="32sp"
+                                    android:textStyle="bold"
+                                    android:textColor="?attr/colorOnSurface"
+                                    tools:text="14" />
+
+                                <TextView
+                                    android:id="@+id/labelDentesD"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/dentes_rotulo"
+                                    android:textAppearance="?attr/textAppearanceLabelSmall"
+                                    android:textColor="?attr/colorOnSurfaceVariant" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
                 </LinearLayout>
 
-                <!-- Eixo C -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="8dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="C:"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:layout_marginEnd="8dp"
-                        android:textColor="?attr/colorOnSurface"
-                        tools:ignore="HardcodedText" />
-                    <TextView
-                        android:id="@+id/resultadoEixoC"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:textColor="?attr/colorOnSurface"
-                        tools:text="14"/>
-                </LinearLayout>
-
-                <!-- Eixo D -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="D:"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:layout_marginEnd="8dp"
-                        android:textColor="?attr/colorOnSurface"
-                        tools:ignore="HardcodedText" />
-                    <TextView
-                        android:id="@+id/resultadoEixoD"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:textColor="?attr/colorOnSurface"
-                        tools:text="14"/>
-                </LinearLayout>
-
-            </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,21 +1,68 @@
 <resources>
+    <!-- Identidade e Nomes -->
     <string name="app_name">Panther</string>
-    <string name="calcular">Calcular</string>
-    <string name="furos_do_disco">Furos do Disco</string>
-    <string name="sementes_por_metro">Sementes por metro</string>
-    <string name="switch_abaixo_acima">Abaixo / Acima</string>
-    <string name="switch_facil_proximo">+Fácil / +Próximo</string>
+    <string name="app_full_name">Vence Tudo Panther</string>
+    <string name="configuracao_plantadeira">Configuração de Sementes</string>
+    <string name="calcular">Calcular Combinação</string>
+    <string name="furos_do_disco">Furos do disco</string>
+    <string name="furos_hint">Ex: 28 (milho), 45 (sorgo), 90 (soja)</string>
+    <string name="sementes_por_metro">Sementes por metro linear</string>
+    <string name="sementes_hint">Alvo desejado (sem/m)</string>
     <string name="resultado_final_sementes">%1$.2f</string>
-    <string name="informa_es">Informações</string>
-    <string name="title_activity_retorno">Retornar</string>
+    <string name="unidade_sementes_metro">sementes por metro</string>
+    <string name="informa_es">Ajuda e Tutorial</string>
+    <string name="title_activity_retorno">Resultado da Regulagem</string>
+    <string name="title_activity_about">Como Usar</string>
+
+    <!-- Validações -->
     <string name="erro_campo_obrigatorio">Campo obrigatório</string>
     <string name="erro_numero_invalido">Digite um número válido</string>
+    <string name="erro_intervalo_furos">O disco deve ter entre 1 e 200 furos</string>
+    <string name="erro_intervalo_sementes">Informe entre 1 e 100 sementes/m</string>
+
+    <!-- Navegação -->
     <string name="back_button_description">Voltar à tela anterior</string>
-    <string name="opcoes_visualizacao">Opções de Visualização</string>
-    <string name="distribuicao_por_eixos">Configuração por Eixo</string>
-    <string name="imagem_do_tutorial">Imagem do Tutorial</string>
-    <string name="desenvolvido">Desenvolvido por Jader Teixeira</string>
-    <string name="aviso_legal">Todas as marcas pertencem a Vence Tudo - Ind. de Máquinas e Implementos Agrícolas</string>
     <string name="proximo">Próximo</string>
     <string name="anterior">Anterior</string>
+    <string name="concluir">Entendi</string>
+    <string name="tutorial_passo">Passo %1$d de %2$d</string>
+
+    <!-- Opções de Ajuste (Toggles) -->
+    <string name="opcoes_visualizacao">Ajustes da Regulagem</string>
+    <string name="ajuste_tolerancia_label">Tolerância do Alvo</string>
+    <string name="ajuste_complexidade_label">Facilidade de Troca</string>
+    <string name="btn_abaixo">Abaixo</string>
+    <string name="btn_acima">Acima</string>
+    <string name="btn_facil">Fácil (2 Eixos)</string>
+    <string name="btn_proximo">Mais Próximo (4 Eixos)</string>
+
+    <!-- Comparativo Alvo vs Real -->
+    <string name="alvo_solicitado">Alvo: %1$d sem/m</string>
+    <string name="diferenca_formato">Diferença: %1$+.2f sem/m (%2$+.1f%%)</string>
+    <string name="diferenca_exata">Alvo exato alcançado (0.00)</string>
+
+    <!-- Eixos -->
+    <string name="distribuicao_por_eixos">Configuração por Eixo</string>
+    <string name="eixo_a">Eixo A</string>
+    <string name="eixo_b">Eixo B</string>
+    <string name="eixo_c">Eixo C</string>
+    <string name="eixo_d">Eixo D</string>
+    <string name="eixo_a_desc">Transmissão</string>
+    <string name="eixo_b_desc">Intermediário</string>
+    <string name="eixo_c_desc">Intermediário</string>
+    <string name="eixo_d_desc">Distribuidor</string>
+    <string name="dentes_rotulo">dentes</string>
+    <string name="fixo_rotulo">Fixo (14D)</string>
+
+    <!-- Tutorial -->
+    <string name="imagem_do_tutorial">Imagem do Tutorial</string>
+    <string name="tutorial_passo_1">O primeiro passo é inserir a quantidade de sementes por metro desejadas e a quantidade de furos no disco utilizado, feito isso clique em calcular.</string>
+    <string name="tutorial_passo_2">Se o valor exato de sementes não for encontrado, você pode alternar facilmente se prefere a regulagem mais próxima Abaixo ou Acima do alvo.</string>
+    <string name="tutorial_passo_3">No modo \"Fácil (2 Eixos)\", você troca apenas as engrenagens dos eixos A e B (C e D permanecem fixos em 14 dentes). No modo \"Mais Próximo\", todos os 4 eixos podem ser alterados para precisão máxima.</string>
+    <string name="tutorial_passo_4">A tela de resultado mostra a combinação exata de engrenagens para cada um dos eixos e o valor real calculado em sementes por metro linear.</string>
+    <string name="tutorial_passo_5">Confira o esquema dos eixos na transmissão da plantadeira: Eixo A, Eixo B, Eixo C e Eixo D.</string>
+
+    <!-- Autoria e Aviso Legal -->
+    <string name="desenvolvido">Desenvolvido por Jader Teixeira</string>
+    <string name="aviso_legal">Uso Nominal: Compatível com plantadeiras 4 eixos (Panther e similares). Todas as marcas pertencem a seus respectivos titulares.</string>
 </resources>

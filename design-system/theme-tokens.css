@@ -1,0 +1,66 @@
+/**
+ * AgroCalibre Design System - Theme Tokens
+ * Especificação baseada no Guia Técnico de Maquinário Agrícola
+ * Licença de Uso Independente - Compliance com Diretrizes de PI
+ */
+
+:root {
+  /* ==========================================================================
+     1. CORES PRIMÁRIAS DE AÇÃO E DESTAQUE
+     ========================================================================== */
+  --color-primary: #CE0B10;           /* Vermelho Institucional - Pantone 186C */
+  --color-primary-hover: #B0090D;     /* Transição de foco e toque */
+  --color-primary-dark: #8D1913;      /* Variação para bordas e ênfase de profundidade */
+  --color-primary-deep: #460E0F;      /* Contraste escuro máximo e superfícies ativas */
+  --color-on-primary: #FFFFFF;        /* Texto sobre primário (Contraste 5.4:1 - WCAG AA) */
+
+  /* ==========================================================================
+     2. CORES SECUNDÁRIAS & ACENTOS AGRÍCOLAS
+     ========================================================================== */
+  --color-secondary: #ECCA00;         /* Amarelo Principal - Pantone 7405C (Alertas / Badges) */
+  --color-secondary-warm: #E7B104;    /* Amarelo Ouro / Trigo - Pantone 124C (Medições / Gráficos) */
+  --color-on-secondary: #373636;      /* Texto de alto contraste sobre amarelo (7.2:1) */
+
+  /* ==========================================================================
+     3. NEUTROS & SUPERFÍCIES (SOLAR & CABINE COMPLIANT)
+     ========================================================================== */
+  --color-dark-surface: #373636;      /* Cinza Escuro Técnico (K 92%) */
+  --color-neutral-dark: #575756;      /* Cinza Médio-Escuro (K 80% - Textos Secundários) */
+  --color-neutral-border: #C6C6C6;    /* Cinza Claro Técnico (K 30% - Divisores e Bordas) */
+  --color-neutral-light: #EFEFEF;     /* Fundo de inputs e cards desabilitados */
+  --color-background-light: #F8F9FA;  /* Fundo da tela em alta luminosidade (Anti-reflexo) */
+  --color-surface-pure: #FFFFFF;      /* Superfície pura dos cards */
+
+  /* Feedback de Status de Linhas de Plantio */
+  --color-status-success: #1E7E34;    /* Linha operando no fluxo nominal */
+  --color-status-warning: #ECCA00;    /* Alerta de variação aceitável */
+  --color-status-danger: #CE0B10;     /* Tubo entupido ou falha de disco */
+
+  /* ==========================================================================
+     4. TIPOGRAFIA - MONTSERRAT
+     ========================================================================== */
+  --font-family-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-fallback: 'Myriad Pro', 'Myriad', sans-serif;
+
+  /* Escala de Pesos */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* ==========================================================================
+     5. ERGONOMIA & ÁREAS DE TOQUE (CAMPO / CABINE / LUVAS)
+     ========================================================================== */
+  --touch-target-min: 48px;           /* Tamanho mínimo de alvo de toque para tratores */
+  --touch-target-large: 56px;         /* Alvo confortável para operação com vibração */
+  --radius-card: 16px;
+  --radius-button: 12px;
+  --radius-badge: 6px;
+
+  /* Sombras Técnicas Industriais */
+  --elevation-low: 0 2px 4px rgba(55, 54, 54, 0.08);
+  --elevation-medium: 0 4px 12px rgba(55, 54, 54, 0.12);
+  --elevation-high: 0 8px 24px rgba(55, 54, 54, 0.16);
+}
+
