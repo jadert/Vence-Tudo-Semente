@@ -19,8 +19,6 @@
     <color name="colorOutlineVariant">@color/neutral_dark</color>
 
     <!-- Cores Customizadas (Tema Escuro) -->
-    <color name="custom_fab_background_color">@color/neutral_dark</color>
-    <color name="custom_fab_icon_color">@color/white</color>
     <color name="custom_rounded_background">@color/dark_surface</color>
     <color name="custom_rounded_stroke">@color/neutral_dark</color>
 </resources>

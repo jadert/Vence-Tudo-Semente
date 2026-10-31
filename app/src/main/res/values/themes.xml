@@ -29,8 +29,6 @@
         <item name="colorSurfaceContainerHighest">@color/white</item>
 
         <!-- Cores Customizadas -->
-        <item name="fabBackgroundColor">@color/custom_fab_background_color</item>
-        <item name="fabIconColor">@color/custom_fab_icon_color</item>
         <item name="roundedBackgroundColor">@color/custom_rounded_background</item>
         <item name="roundedBackgroundStrokeColor">@color/custom_rounded_stroke</item>
 

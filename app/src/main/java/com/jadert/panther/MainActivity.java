@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.android.material.button.MaterialButton;
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupListeners() {
         MaterialButton info = findViewById(R.id.mostraInfo);
-        Button button = findViewById(R.id.button);
+        MaterialButton button = findViewById(R.id.button);
         MaterialButton btnMenos = findViewById(R.id.btnMenosSementes);
         MaterialButton btnMais = findViewById(R.id.btnMaisSementes);
 
@@ -128,14 +127,14 @@ public class MainActivity extends AppCompatActivity {
         openActivity(sementes, furos);
     }
 
-    public void openActivity(int sementes, int furos) {
+    private void openActivity(int sementes, int furos) {
         Intent intent = new Intent(this, Retorno.class);
         intent.putExtra("sementes", String.valueOf(sementes));
         intent.putExtra("furos", String.valueOf(furos));
         startActivity(intent);
     }
 
-    public void openAbout() {
+    private void openAbout() {
         Intent intentAbout = new Intent(this, About.class);
         startActivity(intentAbout);
     }

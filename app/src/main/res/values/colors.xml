@@ -3,7 +3,6 @@
     <!-- Cores Institucionais e Técnicas (Pantone Maquinário Agrícola) -->
     <!-- Primárias de Ação e Destaque -->
     <color name="brand_primary">#CE0B10</color>           <!-- Vermelho Institucional - Pantone 186C -->
-    <color name="brand_primary_dark">#8D1913</color>      <!-- Hover / Active / Dark Accent -->
     <color name="brand_primary_deep">#460E0F</color>      <!-- Dark Border / Max Contrast -->
 
     <!-- Secundárias & Acentos Agrícolas -->
@@ -17,7 +16,6 @@
     <color name="neutral_border">#C6C6C6</color>         <!-- Cinza K 30% (Divisores e bordas) -->
     <color name="background_light">#F8F9FA</color>       <!-- Fundo da tela sob alta luminosidade -->
     <color name="white">#FFFFFFFF</color>
-    <color name="black">#FF000000</color>
 
     <!-- Mapeamento Semântico Material 3 (Tema Claro) -->
     <color name="colorPrimary">@color/brand_primary</color>
@@ -37,9 +35,7 @@
     <color name="colorOutline">@color/neutral_border</color>
     <color name="colorOutlineVariant">@color/neutral_border</color>
 
-    <!-- Legado / Custom -->
-    <color name="custom_fab_background_color">@color/dark_surface</color>
-    <color name="custom_fab_icon_color">@color/white</color>
+    <!-- Custom / Background Arredondado -->
     <color name="custom_rounded_background">@color/background_light</color>
     <color name="custom_rounded_stroke">@color/neutral_border</color>
 </resources>

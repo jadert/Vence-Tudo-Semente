@@ -2,8 +2,7 @@
     <!-- Identidade e Nomes -->
     <string name="app_name">Panther</string>
     <string name="app_full_name">Vence Tudo Panther</string>
-    <string name="configuracao_plantadeira">Configuração de Sementes</string>
-    <string name="calcular">Calcular Combinação</string>
+    <string name="calcular">Calcular</string>
     <string name="furos_do_disco">Furos do disco</string>
     <string name="furos_hint">Ex: 28 (milho), 45 (sorgo), 90 (soja)</string>
     <string name="sementes_por_metro">Sementes por metro linear</string>
